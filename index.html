@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>From The Floor Up — Coming Soon</title>
-<meta name="description" content="Leadership development for frontline supervisors. From The Floor Up is launching soon. Join the list to be first in line.">
+<meta name="description" content="Leadership development for frontline supervisors. From The Floor Up is launching soon.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -19,334 +19,95 @@ body{
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  padding:32px 20px;
+  padding:24px 20px;
   position:relative;
-  overflow:hidden;
+  overflow-x:hidden;
 }
-
-/* background grid */
 body::before{
   content:'';
   position:fixed;
   inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);
+  background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);
   background-size:60px 60px;
   pointer-events:none;
 }
-
-/* top and bottom orange bars */
-.bar-top{position:fixed;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,transparent,#E8620A,transparent);}
-.bar-bottom{position:fixed;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,transparent,#E8620A,transparent);}
-
-.container{
-  max-width:680px;
-  width:100%;
-  text-align:center;
-  position:relative;
-  z-index:1;
-}
-
-/* LOGO */
-.logo{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:18px;
-  font-weight:900;
-  color:rgba(255,255,255,0.5);
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:48px;
-}
+.bar-top{position:fixed;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,#E8620A,transparent);}
+.bar-bottom{position:fixed;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,#E8620A,transparent);}
+.container{max-width:640px;width:100%;text-align:center;position:relative;z-index:1;}
+.logo{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:900;color:rgba(255,255,255,0.4);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;}
 .logo span{color:#E8620A;}
-
-/* MAIN HEADING */
-.eyebrow{
-  font-size:11px;
-  font-weight:700;
-  color:#E8620A;
-  text-transform:uppercase;
-  letter-spacing:3px;
-  margin-bottom:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-}
-.eyebrow::before,.eyebrow::after{
-  content:'';
-  width:32px;
-  height:2px;
-  background:#E8620A;
-}
-
-h1{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:72px;
-  font-weight:900;
-  color:#fff;
-  line-height:0.95;
-  letter-spacing:-1px;
-  margin-bottom:10px;
-}
+.eyebrow{font-size:10px;font-weight:700;color:#E8620A;text-transform:uppercase;letter-spacing:3px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.eyebrow::before,.eyebrow::after{content:'';width:24px;height:2px;background:#E8620A;}
+h1{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;color:#fff;line-height:0.95;letter-spacing:-0.5px;margin-bottom:6px;}
 h1 span{color:#E8620A;}
-
-.tagline{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:24px;
-  font-weight:700;
-  color:rgba(255,255,255,0.45);
-  margin-bottom:36px;
-  letter-spacing:0.5px;
-}
-
-/* DIVIDER */
-.divider{
-  width:60px;
-  height:3px;
-  background:#E8620A;
-  margin:0 auto 36px;
-  border-radius:2px;
-}
-
-/* DESCRIPTION */
-.description{
-  font-size:16px;
-  color:rgba(255,255,255,0.6);
-  line-height:1.8;
-  margin-bottom:48px;
-  max-width:540px;
-  margin-left:auto;
-  margin-right:auto;
-}
+.tagline{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:12px;letter-spacing:0.5px;}
+.divider{width:44px;height:3px;background:#E8620A;margin:0 auto 14px;border-radius:2px;}
+.description{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65;margin-bottom:18px;max-width:500px;margin-left:auto;margin-right:auto;}
 .description strong{color:#fff;font-weight:600;}
-
-/* FORM */
-.form-wrap{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:10px;
-  padding:36px;
-  margin-bottom:36px;
-}
-.form-title{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:22px;
-  font-weight:800;
-  color:#fff;
-  margin-bottom:6px;
-}
-.form-sub{
-  font-size:13px;
-  color:rgba(255,255,255,0.45);
-  margin-bottom:24px;
-  line-height:1.5;
-}
-.form-row{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.form-field{flex:1;min-width:200px;}
-.form-field input{
-  width:100%;
-  padding:13px 16px;
-  background:rgba(255,255,255,0.07);
-  border:1.5px solid rgba(255,255,255,0.12);
-  border-radius:4px;
-  font-size:14px;
-  font-family:'Barlow',sans-serif;
-  color:#fff;
-  outline:none;
-  transition:border-color 0.2s;
-}
-.form-field input::placeholder{color:rgba(255,255,255,0.3);}
+.form-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:18px 22px;margin-bottom:14px;}
+.form-title{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:800;color:#fff;margin-bottom:4px;}
+.form-sub{font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:12px;line-height:1.4;}
+.form-row{display:flex;gap:8px;flex-wrap:wrap;}
+.form-field{flex:1;min-width:150px;}
+.form-field input{width:100%;padding:10px 12px;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.1);border-radius:4px;font-size:13px;font-family:'Barlow',sans-serif;color:#fff;outline:none;transition:border-color 0.2s;}
+.form-field input::placeholder{color:rgba(255,255,255,0.25);}
 .form-field input:focus{border-color:#E8620A;}
-.btn-submit{
-  background:#E8620A;
-  color:#fff;
-  padding:13px 28px;
-  border:none;
-  border-radius:4px;
-  font-size:14px;
-  font-weight:700;
-  font-family:'Barlow',sans-serif;
-  cursor:pointer;
-  text-transform:uppercase;
-  letter-spacing:0.5px;
-  transition:background 0.2s,transform 0.2s;
-  white-space:nowrap;
-}
-.btn-submit:hover{background:#c8520a;transform:translateY(-1px);}
-.form-note{
-  font-size:11px;
-  color:rgba(255,255,255,0.25);
-  margin-top:14px;
-  text-align:center;
-}
-
-/* SUCCESS MESSAGE */
-.success{
-  display:none;
-  background:rgba(16,185,129,0.1);
-  border:1px solid rgba(16,185,129,0.3);
-  border-radius:6px;
-  padding:16px 20px;
-  font-size:14px;
-  color:#6EE7B7;
-  margin-top:14px;
-  text-align:center;
-}
-
-/* WHAT'S COMING */
-.coming{margin-bottom:48px;}
-.coming-title{
-  font-size:11px;
-  font-weight:700;
-  color:rgba(255,255,255,0.3);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  margin-bottom:20px;
-}
-.coming-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-.coming-card{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.07);
-  border-top:2px solid #E8620A;
-  border-radius:6px;
-  padding:18px 14px;
-  text-align:center;
-}
-.cc-icon{
-  font-size:24px;
-  margin-bottom:8px;
-}
-.cc-title{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:15px;
-  font-weight:800;
-  color:#fff;
-  margin-bottom:5px;
-}
-.cc-desc{
-  font-size:11px;
-  color:rgba(255,255,255,0.35);
-  line-height:1.5;
-}
-
-/* FOOTER */
-.footer-text{
-  font-size:12px;
-  color:rgba(255,255,255,0.2);
-  margin-bottom:6px;
-}
-.footer-email{
-  font-size:12px;
-  color:#E8620A;
-  text-decoration:none;
-  transition:color 0.2s;
-}
+.btn-submit{background:#E8620A;color:#fff;padding:10px 20px;border:none;border-radius:4px;font-size:13px;font-weight:700;font-family:'Barlow',sans-serif;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;transition:background 0.2s;white-space:nowrap;}
+.btn-submit:hover{background:#c8520a;}
+.form-note{font-size:10px;color:rgba(255,255,255,0.2);margin-top:8px;text-align:center;}
+.success{display:none;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);border-radius:4px;padding:8px;font-size:12px;color:#6EE7B7;margin-top:8px;text-align:center;}
+.coming-title{font-size:10px;font-weight:700;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;}
+.coming-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+.coming-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-top:2px solid #E8620A;border-radius:4px;padding:10px 8px;text-align:center;}
+.cc-icon{font-size:16px;margin-bottom:4px;}
+.cc-title{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;color:#fff;margin-bottom:2px;}
+.cc-desc{font-size:10px;color:rgba(255,255,255,0.3);line-height:1.3;}
+.footer-text{font-size:11px;color:rgba(255,255,255,0.2);margin-bottom:3px;}
+.footer-email{font-size:12px;color:#E8620A;text-decoration:none;}
 .footer-email:hover{color:#F5A05A;}
-
-@media(max-width:600px){
-  h1{font-size:52px;}
-  .coming-grid{grid-template-columns:1fr;}
-  .form-row{flex-direction:column;}
-  .btn-submit{width:100%;}
-}
+@media(max-width:600px){h1{font-size:38px;}.coming-grid{grid-template-columns:1fr;}.form-row{flex-direction:column;}.btn-submit{width:100%;}}
 </style>
 </head>
 <body>
-
 <div class="bar-top"></div>
 <div class="bar-bottom"></div>
-
 <div class="container">
-
-  <!-- LOGO -->
   <div class="logo">FROM THE <span>FLOOR</span> UP</div>
-
-  <!-- HEADING -->
   <div class="eyebrow">Launching Soon</div>
   <h1>Leadership is<br>a <span>Journey.</span></h1>
   <div class="tagline">Yours starts here.</div>
   <div class="divider"></div>
-
-  <!-- DESCRIPTION -->
-  <p class="description">
-    <strong>From The Floor Up</strong> is a leadership development platform built specifically for frontline supervisors in manufacturing and industrial environments.<br><br>
-    Real tools. Real frameworks. Real lessons from <strong>20 years on the plant floor</strong> — launching very soon.
-  </p>
-
-  <!-- EMAIL FORM -->
+  <p class="description"><strong>From The Floor Up</strong> is leadership development for frontline supervisors in manufacturing and industrial environments. Real tools. Real frameworks. <strong>20 years on the plant floor</strong> — launching very soon.</p>
   <div class="form-wrap">
     <div class="form-title">Be the first to know when we launch.</div>
-    <div class="form-sub">Join the list and get our free resource — The New Supervisor's First 30 Days Checklist — delivered to your inbox on launch day.</div>
+    <div class="form-sub">Get our free resource — The New Supervisor's First 30 Days Checklist — delivered on launch day.</div>
     <div class="form-row">
-      <div class="form-field">
-        <input type="text" id="fname" placeholder="Your first name">
-      </div>
-      <div class="form-field">
-        <input type="email" id="femail" placeholder="Your email address">
-      </div>
+      <div class="form-field"><input type="text" id="fname" placeholder="Your first name"></div>
+      <div class="form-field"><input type="email" id="femail" placeholder="Your email address"></div>
       <button class="btn-submit" onclick="handleSubmit()">Notify Me →</button>
     </div>
-    <div class="success" id="success-msg">
-      ✓ You are on the list. We will be in touch soon — and your free checklist is on its way.
-    </div>
-    <p class="form-note">No spam. No fluff. Just real leadership content when we launch.</p>
+    <div class="success" id="success-msg">✓ You are on the list. Your free checklist is on its way.</div>
+    <p class="form-note">No spam. No fluff. Unsubscribe anytime.</p>
   </div>
-
-  <!-- WHAT'S COMING -->
-  <div class="coming">
-    <div class="coming-title">What is coming</div>
-    <div class="coming-grid">
-      <div class="coming-card">
-        <div class="cc-icon">📋</div>
-        <div class="cc-title">The Field Kit</div>
-        <div class="cc-desc">12 ready-to-use tools every new supervisor needs on day one</div>
-      </div>
-      <div class="coming-card">
-        <div class="cc-icon">🎓</div>
-        <div class="cc-title">The Course</div>
-        <div class="cc-desc">10-module leadership playbook built from real plant floor experience</div>
-      </div>
-      <div class="coming-card">
-        <div class="cc-icon">🆓</div>
-        <div class="cc-title">Free Resources</div>
-        <div class="cc-desc">Practical checklists and frameworks delivered to your inbox</div>
-      </div>
-    </div>
+  <div class="coming-title">What is coming</div>
+  <div class="coming-grid">
+    <div class="coming-card"><div class="cc-icon">📋</div><div class="cc-title">The Field Kit</div><div class="cc-desc">12 ready-to-use tools for day one</div></div>
+    <div class="coming-card"><div class="cc-icon">🎓</div><div class="cc-title">The Course</div><div class="cc-desc">10-module leadership playbook</div></div>
+    <div class="coming-card"><div class="cc-icon">🆓</div><div class="cc-title">Free Resources</div><div class="cc-desc">Practical tools to your inbox</div></div>
   </div>
-
-  <!-- FOOTER -->
   <div class="footer-text">Questions? Reach out anytime.</div>
   <a href="mailto:hello@ftfuleadership.com" class="footer-email">hello@ftfuleadership.com</a>
-
 </div>
-
 <script>
-function handleSubmit() {
-  const name = document.getElementById('fname').value.trim();
-  const email = document.getElementById('femail').value.trim();
-  if (!name || !email) {
-    alert('Please enter your name and email address.');
-    return;
-  }
-  if (!email.includes('@') || !email.includes('.')) {
-    alert('Please enter a valid email address.');
-    return;
-  }
-  // Show success message
-  document.getElementById('success-msg').style.display = 'block';
-  document.getElementById('fname').value = '';
-  document.getElementById('femail').value = '';
+function handleSubmit(){
+  const name=document.getElementById('fname').value.trim();
+  const email=document.getElementById('femail').value.trim();
+  if(!name||!email){alert('Please enter your name and email address.');return;}
+  if(!email.includes('@')||!email.includes('.')){alert('Please enter a valid email address.');return;}
+  document.getElementById('success-msg').style.display='block';
+  document.getElementById('fname').value='';
+  document.getElementById('femail').value='';
 }
 </script>
-
 </body>
 </html>
