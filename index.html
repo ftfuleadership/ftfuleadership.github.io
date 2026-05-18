@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From The Floor Up — Leadership Development for Frontline Supervisors</title>
+<meta name="description" content="Real leadership development built from 15 years on the manufacturing floor. Tools, frameworks, and honest lessons for frontline supervisors who want to lead with confidence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#1B2B4B; --navy-dark:#111d33; --navy-mid:#1e3357;
+  --orange:#E8620A; --orange-light:#F5A05A; --orange-pale:#FFF7F2;
+  --white:#fff; --gray-50:#F9FAFB; --gray-100:#F4F5F7;
+  --gray-200:#E5E7EB; --gray-400:#9CA3AF; --gray-600:#6B7280; --gray-800:#374151;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;color:var(--navy);background:var(--white);overflow-x:hidden;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}.d4{transition-delay:0.4s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;background:rgba(17,29,51,0.97);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid rgba(232,98,10,0.2);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between;}
+.nav-brand{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:var(--white);text-decoration:none;letter-spacing:0.5px;}
+.nav-brand span{color:var(--orange);}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{font-size:12px;font-weight:600;color:rgba(255,255,255,0.65);text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{background:var(--orange)!important;color:var(--white)!important;padding:9px 20px;border-radius:3px;font-weight:700!important;transition:background 0.2s!important;}
+.nav-cta:hover{background:#c8520a!important;}
+
+/* HERO */
+.hero{background:var(--navy-dark);min-height:100vh;display:flex;align-items:center;padding-top:68px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 50%,rgba(232,98,10,0.07) 0%,transparent 60%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:64px 64px;}
+.hero-inner{max-width:1100px;margin:0 auto;padding:80px 32px;position:relative;z-index:1;display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:center;}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;animation:fadeIn 0.8s ease forwards;}
+.hero-tag::before{content:'';width:28px;height:2px;background:var(--orange);}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:76px;font-weight:900;color:var(--white);line-height:0.93;letter-spacing:-1.5px;margin-bottom:22px;animation:fadeUp 0.8s ease 0.1s both;}
+.hero h1 span{color:var(--orange);}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.6);line-height:1.75;margin-bottom:36px;max-width:500px;animation:fadeUp 0.8s ease 0.2s both;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp 0.8s ease 0.3s both;}
+.btn-primary{background:var(--orange);color:var(--white);padding:15px 30px;border-radius:3px;font-size:13px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;transition:background 0.2s,transform 0.2s;display:inline-block;}
+.btn-primary:hover{background:#c8520a;transform:translateY(-2px);}
+.btn-ghost{background:transparent;color:var(--white);padding:15px 30px;border-radius:3px;font-size:13px;font-weight:600;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;border:1.5px solid rgba(255,255,255,0.2);transition:border-color 0.2s;}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.5);}
+.hero-panel{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:32px;animation:fadeUp 0.8s ease 0.4s both;}
+.hp-label{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:2px;margin-bottom:18px;}
+.hp-stat{padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.hp-stat:last-child{border-bottom:none;padding-bottom:0;}
+.hp-num{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:var(--orange);line-height:1;margin-bottom:4px;}
+.hp-desc{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.4;}
+.hero-bottom{position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--orange),transparent);}
+
+/* TRUTH BAR */
+.truth-bar{background:var(--orange);padding:18px 32px;text-align:center;}
+.truth-bar p{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:800;color:var(--white);letter-spacing:0.5px;}
+
+/* SECTION BASE */
+.sec{padding:96px 32px;}
+.sec-inner{max-width:1100px;margin:0 auto;}
+.sec-eyebrow{font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.sec-eyebrow::before{content:'';width:24px;height:2px;background:var(--orange);}
+.sec-h{font-family:'Barlow Condensed',sans-serif;font-size:46px;font-weight:900;color:var(--navy);line-height:1.05;margin-bottom:14px;}
+.sec-h span{color:var(--orange);}
+.sec-p{font-size:16px;color:var(--gray-600);line-height:1.8;max-width:620px;}
+
+/* WHO IT'S FOR */
+.who{background:var(--gray-100);}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px;}
+.who-card{background:var(--white);border:1px solid var(--gray-200);border-top:3px solid var(--orange);border-radius:6px;padding:26px;}
+.wc-num{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:var(--orange);opacity:0.15;line-height:1;margin-bottom:12px;}
+.wc-title{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:800;color:var(--navy);margin-bottom:8px;}
+.wc-body{font-size:13px;color:var(--gray-600);line-height:1.7;}
+
+/* PHILOSOPHY */
+.philosophy{background:var(--navy);}
+.philosophy .sec-eyebrow{color:var(--orange-light);}
+.philosophy .sec-eyebrow::before{background:var(--orange-light);}
+.philosophy .sec-h{color:var(--white);}
+.philosophy .sec-p{color:rgba(255,255,255,0.55);}
+.floor-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:52px;}
+.floor-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:22px 16px;text-align:center;transition:background 0.2s;}
+.floor-card:hover{background:rgba(255,255,255,0.06);}
+.fc-letter{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;color:var(--orange);line-height:1;margin-bottom:6px;}
+.fc-word{font-size:9px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
+.fc-title{font-size:12px;font-weight:600;color:var(--white);margin-bottom:5px;line-height:1.3;}
+.fc-desc{font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5;}
+
+/* PRODUCTS */
+.products{background:var(--white);}
+.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:52px;}
+.prod-card{border-radius:8px;overflow:hidden;border:1px solid var(--gray-200);transition:transform 0.2s,box-shadow 0.2s;}
+.prod-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(27,43,75,0.1);}
+.prod-head{background:var(--navy);padding:30px 30px 24px;position:relative;}
+.prod-badge{position:absolute;top:14px;right:14px;background:var(--orange);color:var(--white);font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;padding:4px 10px;border-radius:2px;}
+.prod-tag{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;}
+.prod-name{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;color:var(--white);line-height:1.15;margin-bottom:6px;}
+.prod-sub{font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;}
+.prod-price-row{display:flex;align-items:baseline;gap:8px;margin-top:18px;}
+.prod-price{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;color:var(--orange);line-height:1;}
+.prod-note{font-size:12px;color:rgba(255,255,255,0.35);}
+.prod-body{padding:26px 30px 28px;background:var(--white);}
+.prod-includes{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;}
+.prod-list{list-style:none;margin-bottom:22px;}
+.prod-list li{display:flex;gap:9px;font-size:13px;color:var(--gray-800);line-height:1.5;margin-bottom:7px;padding-bottom:7px;border-bottom:1px solid var(--gray-100);}
+.prod-list li:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.prod-list li::before{content:'✓';color:var(--orange);font-weight:700;min-width:14px;margin-top:1px;}
+.btn-prod{display:block;text-align:center;background:var(--orange);color:var(--white);padding:13px 22px;border-radius:3px;font-size:13px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;transition:background 0.2s;}
+.btn-prod:hover{background:#c8520a;}
+.btn-prod-out{display:block;text-align:center;background:transparent;color:var(--navy);padding:13px 22px;border-radius:3px;font-size:13px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;border:1.5px solid var(--navy);transition:all 0.2s;}
+.btn-prod-out:hover{background:var(--navy);color:var(--white);}
+
+/* FREE RESOURCE */
+.free-sec{background:var(--orange);padding:80px 32px;}
+.free-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:center;}
+.free-eyebrow{font-size:11px;font-weight:700;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;}
+.free-h{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;color:var(--white);line-height:1.05;margin-bottom:14px;}
+.free-p{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.75;}
+.free-form{background:var(--white);border-radius:8px;padding:32px;}
+.ff-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:var(--navy);margin-bottom:4px;}
+.ff-sub{font-size:13px;color:var(--gray-600);margin-bottom:22px;line-height:1.5;}
+.ff-field{margin-bottom:12px;}
+.ff-field label{display:block;font-size:10px;font-weight:700;color:var(--gray-600);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;}
+.ff-field input{width:100%;padding:11px 14px;border:1.5px solid var(--gray-200);border-radius:3px;font-size:14px;font-family:'Barlow',sans-serif;color:var(--navy);outline:none;transition:border-color 0.2s;}
+.ff-field input:focus{border-color:var(--orange);}
+.btn-ff{width:100%;background:var(--orange);color:var(--white);padding:13px;border:none;border-radius:3px;font-size:13px;font-weight:700;font-family:'Barlow',sans-serif;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;transition:background 0.2s;}
+.btn-ff:hover{background:#c8520a;}
+.ff-note{font-size:11px;color:var(--gray-400);text-align:center;margin-top:9px;}
+
+/* ABOUT */
+.about{background:var(--gray-100);}
+.about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:start;}
+.about-p{font-size:15px;color:var(--gray-600);line-height:1.85;margin-bottom:18px;}
+.about-p strong{color:var(--navy);font-weight:600;}
+.about-quote{background:var(--navy);border-radius:6px;padding:26px 28px;margin-top:28px;}
+.aq-text{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:10px;}
+.aq-attr{font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.a-stat{background:var(--white);border:1px solid var(--gray-200);border-top:3px solid var(--orange);border-radius:6px;padding:22px 18px;text-align:center;}
+.as-num{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;color:var(--navy);line-height:1;margin-bottom:5px;}
+.as-num span{color:var(--orange);}
+.as-label{font-size:11px;color:var(--gray-600);line-height:1.4;}
+.ind-block{background:var(--white);border:1px solid var(--gray-200);border-radius:6px;padding:20px;margin-top:12px;grid-column:span 2;}
+.ind-label{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;}
+.ind-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.ind-tag{background:var(--gray-100);color:var(--navy);font-size:11px;font-weight:600;padding:5px 11px;border-radius:2px;border:1px solid var(--gray-200);}
+
+/* PRINCIPLES */
+.principles{background:var(--navy);padding:56px 32px;}
+.pr-inner{max-width:1100px;margin:0 auto;}
+.pr-label{font-size:11px;font-weight:700;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:3px;text-align:center;margin-bottom:28px;}
+.pr-list{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;}
+.pr-item{background:var(--navy);padding:22px 16px;text-align:center;transition:background 0.2s;}
+.pr-item:hover{background:var(--navy-mid);}
+.pri-n{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:7px;}
+.pri-t{font-size:12px;color:rgba(255,255,255,0.65);line-height:1.4;font-weight:500;}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--white);}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px;}
+.test-card{background:var(--gray-50);border:1px solid var(--gray-200);border-left:3px solid var(--orange);border-radius:6px;padding:26px;}
+.test-stars{color:var(--orange);font-size:13px;letter-spacing:2px;margin-bottom:12px;}
+.test-text{font-size:14px;color:var(--gray-800);line-height:1.75;font-style:italic;margin-bottom:16px;}
+.test-name{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;}
+.test-role{font-size:11px;color:var(--gray-400);margin-top:2px;}
+.test-placeholder{background:var(--gray-50);border:1.5px dashed var(--gray-200);border-radius:6px;padding:26px;display:flex;align-items:center;justify-content:center;text-align:center;min-height:160px;}
+.tp-text{font-size:12px;color:var(--gray-400);line-height:1.6;}
+
+/* FOOTER */
+footer{background:var(--navy-dark);padding:56px 32px 28px;border-top:1px solid rgba(232,98,10,0.15);}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:56px;margin-bottom:44px;}
+.fb-name{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;color:var(--white);margin-bottom:4px;}
+.fb-name span{color:var(--orange);}
+.fb-tag{font-size:10px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;}
+.fb-body{font-size:13px;color:rgba(255,255,255,0.35);line-height:1.7;max-width:280px;}
+.fc-title{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;margin-bottom:9px;transition:color 0.2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);}
+.fbot-copy{font-size:11px;color:rgba(255,255,255,0.25);}
+.fbot-email{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.fbot-email:hover{color:var(--orange);}
+.fbot-tag{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,0.2);letter-spacing:1px;}
+.fbot-tag span{color:rgba(232,98,10,0.5);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}.hero-panel{display:none;}
+  .hero h1{font-size:52px;}
+  .who-grid,.floor-grid{grid-template-columns:1fr 1fr;}
+  .products-grid,.free-inner,.about-inner{grid-template-columns:1fr;}
+  .test-grid,.pr-list{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr;gap:28px;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">FROM THE <span>FLOOR</span> UP</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#products">Resources</a>
+      <a href="#philosophy">The Method</a>
+      <a href="#free">Free Guide</a>
+      <a href="#free" class="nav-cta">Get Free Checklist →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Leadership development for frontline supervisors</div>
+      <h1>Built from<br>the <span>Floor</span><br>Up.</h1>
+      <p class="hero-sub">A title makes you a supervisor. Trust makes you a leader. Real leadership development built from 15 years on the manufacturing floor — no theory, no fluff, just what actually works.</p>
+      <div class="hero-btns">
+        <a href="#free" class="btn-primary">Get the Free Checklist →</a>
+        <a href="#products" class="btn-ghost">See All Resources</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="hp-label">What you get here</div>
+      <div class="hp-stat">
+        <div class="hp-num">15</div>
+        <div class="hp-desc">Years of real plant floor leadership experience behind every resource</div>
+      </div>
+      <div class="hp-stat">
+        <div class="hp-num">12</div>
+        <div class="hp-desc">Ready-to-use tools in the Frontline Supervisor's Field Kit</div>
+      </div>
+      <div class="hp-stat">
+        <div class="hp-num">10</div>
+        <div class="hp-desc">Course modules built from real stories, real failures, real breakthroughs</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom"></div>
+</section>
+
+<!-- TRUTH BAR -->
+<div class="truth-bar">
+  <p>"Just because I have a position of authority over someone does not mean I am above them." — The philosophy behind From The Floor Up</p>
+</div>
+
+<!-- WHO IT'S FOR -->
+<section class="who sec" id="who">
+  <div class="sec-inner">
+    <div class="reveal"><div class="sec-eyebrow">Who this is for</div></div>
+    <div class="reveal d1"><h2 class="sec-h">You were promoted<br>because you were <span>good at your job.</span></h2></div>
+    <div class="reveal d2"><p class="sec-p">Nobody told you that leading people is an entirely different skill. Nobody handed you a playbook. From The Floor Up exists for the men and women who got promoted — and then discovered that everything they knew was just the beginning.</p></div>
+    <div class="who-grid">
+      <div class="who-card reveal d1">
+        <div class="wc-num">01</div>
+        <div class="wc-title">First-Time Supervisors</div>
+        <div class="wc-body">You just got promoted and you are figuring it out in real time. Your team is watching every move. You need practical tools — not theory — starting on day one.</div>
+      </div>
+      <div class="who-card reveal d2">
+        <div class="wc-num">02</div>
+        <div class="wc-title">Frontline Leaders in Manufacturing</div>
+        <div class="wc-body">You work in an environment where leadership development is rare and the stakes are real. You need content built for your world — not a corporate office somewhere.</div>
+      </div>
+      <div class="who-card reveal d3">
+        <div class="wc-num">03</div>
+        <div class="wc-title">Supervisors Ready to Level Up</div>
+        <div class="wc-body">You have been leading for a while and you know there is more. You want to build genuine trust, develop your people, and become the kind of leader teams actually follow.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy sec" id="philosophy">
+  <div class="sec-inner">
+    <div class="reveal"><div class="sec-eyebrow">The F.L.O.O.R. Method</div></div>
+    <div class="reveal d1"><h2 class="sec-h">Five principles.<br><span>One complete framework.</span></h2></div>
+    <div class="reveal d2"><p class="sec-p">Every tool, course, and resource at From The Floor Up is built on the F.L.O.O.R. Method — five leadership principles forged from 15 years of real experience on manufacturing and industrial floors.</p></div>
+    <div class="floor-grid">
+      <div class="floor-card reveal d1">
+        <div class="fc-letter">F</div>
+        <div class="fc-word">Face Yourself</div>
+        <div class="fc-title">Leadership starts with self-awareness</div>
+        <div class="fc-desc">You cannot lead others until you understand your own defaults, blind spots, and fears.</div>
+      </div>
+      <div class="floor-card reveal d2">
+        <div class="fc-letter">L</div>
+        <div class="fc-word">Learn Your People</div>
+        <div class="fc-title">Every person is different</div>
+        <div class="fc-desc">Know them as individuals — skill, confidence, history, identity. Meet them where they actually are.</div>
+      </div>
+      <div class="floor-card reveal d3">
+        <div class="fc-letter">O</div>
+        <div class="fc-word">Own the Floor</div>
+        <div class="fc-title">Get beside your team</div>
+        <div class="fc-desc">The wall between leadership and the floor is built by leaders who forget where they came from.</div>
+      </div>
+      <div class="floor-card reveal d4">
+        <div class="fc-letter">O</div>
+        <div class="fc-word">Open Yourself Up</div>
+        <div class="fc-title">Vulnerability is the unlock</div>
+        <div class="fc-desc">Build culture through what you allow, reinforce, inspect, and model — every single day.</div>
+      </div>
+      <div class="floor-card reveal d4">
+        <div class="fc-letter">R</div>
+        <div class="fc-word">Relationships First</div>
+        <div class="fc-title">Results follow relationships</div>
+        <div class="fc-desc">Trust built before the hard moment is what carries everyone through it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products sec" id="products">
+  <div class="sec-inner">
+    <div class="reveal"><div class="sec-eyebrow">Resources</div></div>
+    <div class="reveal d1"><h2 class="sec-h">Everything your promotion<br><span>didn't come with.</span></h2></div>
+    <div class="reveal d2"><p class="sec-p">Two products built entirely from real manufacturing and industrial leadership experience. No borrowed content. No corporate theory. Just the tools and knowledge that actually work on the floor.</p></div>
+    <div class="products-grid">
+
+      <!-- TOOLKIT -->
+      <div class="prod-card reveal d1">
+        <div class="prod-head">
+          <div class="prod-badge">Start Here</div>
+          <div class="prod-tag">Tool 01</div>
+          <div class="prod-name">The Frontline Supervisor's Field Kit</div>
+          <div class="prod-sub">Everything your promotion didn't come with — 12 professional, ready-to-use templates and frameworks</div>
+          <div class="prod-price-row">
+            <div class="prod-price">$67</div>
+            <div class="prod-note">One-time — instant download</div>
+          </div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-includes">What's inside — 12 documents</div>
+          <ul class="prod-list">
+            <li>First 30/60/90 Day Plan for new supervisors</li>
+            <li>Team Intelligence Sheet — individual assessment tool</li>
+            <li>The Respect Audit — self-assessment framework</li>
+            <li>Daily Shift Startup Checklist</li>
+            <li>Coaching Conversation Framework</li>
+            <li>One-on-One Meeting Template</li>
+            <li>Team Health Assessment — the two-axis tool</li>
+            <li>Conflict Resolution Guide</li>
+            <li>Performance Documentation Form</li>
+            <li>New Employee Onboarding Checklist</li>
+            <li>Shift Handoff Communication Template</li>
+            <li>Supervisor's Rules of the Road</li>
+          </ul>
+          <a href="https://gumroad.com" class="btn-prod">Get the Field Kit — $67 →</a>
+        </div>
+      </div>
+
+      <!-- COURSE -->
+      <div class="prod-card reveal d2">
+        <div class="prod-head">
+          <div class="prod-badge">Full Course</div>
+          <div class="prod-tag">Tool 02</div>
+          <div class="prod-name">From The Floor Up: The Industrial Supervisor's Playbook</div>
+          <div class="prod-sub">A complete 10-module leadership course built from 15 years of real plant floor experience</div>
+          <div class="prod-price-row">
+            <div class="prod-price">$247</div>
+            <div class="prod-note">One-time — lifetime access</div>
+          </div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-includes">10 modules covering</div>
+          <ul class="prod-list">
+            <li>The Mindset Shift — from worker to leader</li>
+            <li>Earning Respect on the Floor</li>
+            <li>Know Your People — the 4-dimension framework</li>
+            <li>Building Trust Across the Wall</li>
+            <li>The Hard Conversations</li>
+            <li>Team Health and Culture — the ARIM Framework</li>
+            <li>Developing Your People</li>
+            <li>Leading Through Hard Times</li>
+            <li>Leadership is a Journey</li>
+            <li>Your Leadership Code of Conduct — capstone</li>
+          </ul>
+          <a href="https://gumroad.com" class="btn-prod-out">Enroll in the Course — $247 →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FREE RESOURCE -->
+<section class="free-sec" id="free">
+  <div class="free-inner">
+    <div class="reveal">
+      <div class="free-eyebrow">Free resource</div>
+      <h2 class="free-h">The New Supervisor's First 30 Days Checklist</h2>
+      <p class="free-p">What to do, what to say, and what to avoid in your first month on the floor. Built from real experience. Delivered to your inbox immediately. No cost — just value.</p>
+    </div>
+    <div class="free-form reveal d2">
+      <div class="ff-title">Get the free checklist</div>
+      <div class="ff-sub">Join supervisors and frontline leaders getting real, practical leadership resources — no fluff, no spam.</div>
+      <div class="ff-field">
+        <label>Your first name</label>
+        <input type="text" placeholder="First name">
+      </div>
+      <div class="ff-field">
+        <label>Your email address</label>
+        <input type="email" placeholder="you@email.com">
+      </div>
+      <button class="btn-ff">Send me the free checklist →</button>
+      <p class="ff-note">No spam. Unsubscribe anytime. Your information is never shared.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about sec" id="about">
+  <div class="about-inner">
+    <div>
+      <div class="reveal"><div class="sec-eyebrow">About From The Floor Up</div></div>
+      <div class="reveal d1"><h2 class="sec-h">This is not <span>borrowed</span><br>leadership content.</h2></div>
+      <div class="reveal d2">
+        <p class="about-p">From The Floor Up was built by a leader who learned the hard way. Who came into their first supervisor role with a drill sergeant mentality and had to figure out — in real time, on a real floor — what leadership actually requires.</p>
+        <p class="about-p">The resources here are built from <strong>nearly 15 years of frontline leadership experience</strong> across rubber and plastics, fiberglass, heat treatment, and manufacturing operations. From production supervisor to plant manager. From managing a handful of team members to leading entire operations.</p>
+        <p class="about-p">Every tool, framework, and lesson in this library came from a real situation. A real team. A real decision that had to be made — sometimes with no support, no playbook, and no guarantee it would work.</p>
+        <p class="about-p">That is exactly why it works for you.</p>
+      </div>
+      <div class="about-quote reveal d3">
+        <div class="aq-text">"Leadership is a journey. The hard seasons are not a detour. They are where the real work happens — and where the real leaders are made."</div>
+        <div class="aq-attr">— From The Floor Up</div>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="about-stats">
+        <div class="a-stat">
+          <div class="as-num">15<span>+</span></div>
+          <div class="as-label">Years of real frontline leadership experience</div>
+        </div>
+        <div class="a-stat">
+          <div class="as-num">4</div>
+          <div class="as-label">Leadership roles — supervisor to plant manager</div>
+        </div>
+        <div class="a-stat">
+          <div class="as-num">100<span>s</span></div>
+          <div class="as-label">Of team members led, coached, and developed</div>
+        </div>
+        <div class="a-stat">
+          <div class="as-num">0</div>
+          <div class="as-label">Borrowed frameworks — all content is earned experience</div>
+        </div>
+        <div class="ind-block">
+          <div class="ind-label">Industries</div>
+          <div class="ind-tags">
+            <span class="ind-tag">Rubber & Plastics</span>
+            <span class="ind-tag">Fiberglass</span>
+            <span class="ind-tag">Heat Treatment</span>
+            <span class="ind-tag">Manufacturing Operations</span>
+            <span class="ind-tag">Industrial Production</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES STRIP -->
+<div class="principles">
+  <div class="pr-inner">
+    <div class="pr-label">The principles behind every resource</div>
+    <div class="pr-list">
+      <div class="pr-item"><div class="pri-n">01</div><div class="pri-t">Respect is earned — not given with a title</div></div>
+      <div class="pr-item"><div class="pri-n">02</div><div class="pri-t">You cannot lead everyone the same way</div></div>
+      <div class="pr-item"><div class="pri-n">03</div><div class="pri-t">Communication is the foundation of every relationship</div></div>
+      <div class="pr-item"><div class="pri-n">04</div><div class="pri-t">Control what you can control — let the rest go</div></div>
+      <div class="pr-item"><div class="pri-n">05</div><div class="pri-t">The best thing you will ever build is a person</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials sec" id="testimonials">
+  <div class="sec-inner">
+    <div class="reveal"><div class="sec-eyebrow">What leaders are saying</div></div>
+    <div class="reveal d1"><h2 class="sec-h">Real results from<br><span>real supervisors.</span></h2></div>
+    <div class="test-grid">
+      <div class="test-placeholder reveal d1">
+        <div class="tp-text">⭐⭐⭐⭐⭐<br><br>Testimonials coming soon.<br>Early access buyers — share your experience at<br><strong>hello@ftfuleadership.com</strong></div>
+      </div>
+      <div class="test-placeholder reveal d2">
+        <div class="tp-text">⭐⭐⭐⭐⭐<br><br>Are you using the Field Kit or the course?<br>We would love to hear what is working for you.<br><strong>hello@ftfuleadership.com</strong></div>
+      </div>
+      <div class="test-placeholder reveal d3">
+        <div class="tp-text">⭐⭐⭐⭐⭐<br><br>Your review helps other supervisors<br>find the resources they need.<br><strong>hello@ftfuleadership.com</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="fb-name">FROM THE <span>FLOOR</span> UP</div>
+        <div class="fb-tag">ftfuleadership.com</div>
+        <div class="fb-body">Real leadership development for frontline supervisors in manufacturing and industrial environments. Built from the floor up — not from a classroom down.</div>
+      </div>
+      <div class="footer-col">
+        <div class="fc-title">Resources</div>
+        <a href="#products">Frontline Supervisor's Field Kit</a>
+        <a href="#products">The Industrial Supervisor's Playbook</a>
+        <a href="#free">Free 30-Day Checklist</a>
+      </div>
+      <div class="footer-col">
+        <div class="fc-title">Navigate</div>
+        <a href="#who">Who This Is For</a>
+        <a href="#philosophy">The F.L.O.O.R. Method</a>
+        <a href="#about">About</a>
+        <a href="#free">Get the Free Guide</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="fbot-copy">&copy; 2026 From The Floor Up. All rights reserved.</div>
+      <a href="mailto:hello@ftfuleadership.com" class="fbot-email">hello@ftfuleadership.com</a>
+      <div class="fbot-tag">Leadership is a journey. <span>Yours starts here.</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
